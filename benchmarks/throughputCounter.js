@@ -4,9 +4,13 @@ var mqtt = require('../')
 
 
 let clients = [];
-let nc = 5000;
+let nc = 10000;
 for (let i = 0; i < nc; ++i) {
-  clients.push(mqtt.connect({ username: 'test', password: 'test', port: 80, host: 'mqtt.fizz.io', clean: true, encoding: 'binary', keepalive: 50 }))
+  clients.push(mqtt.connect({
+    username: 'test', password: 'test',
+    port: 1883,//80, 
+    host: 'ec2-18-144-5-104.us-west-1.compute.amazonaws.com', //'mqtt.fizz.io',
+    clean: true, encoding: 'binary', keepalive: 50 }))
 }
 
 let counter = 0
