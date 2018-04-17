@@ -10,7 +10,7 @@ for (let i = 0; i < nc; ++i) {
     username: 'test', password: 'test',
     port: 1883,//80, 
     host: 'ec2-18-144-5-104.us-west-1.compute.amazonaws.com', //'mqtt.fizz.io',
-    clean: true, encoding: 'binary', keepalive: 50 }))
+    clean: false, encoding: 'binary', keepalive: 50 }))
 }
 
 let counter = 0
