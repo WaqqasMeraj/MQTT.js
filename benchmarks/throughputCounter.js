@@ -6,10 +6,10 @@ var mqtt = require('../')
 let clients = [];
 let nc = 10000;
 for (let i = 0; i < nc; ++i) {
-  clients.push(mqtt.connect({
-    username: 'test', password: 'test',
-    port: 1883,//80, 
-    host: 'ec2-18-144-5-104.us-west-1.compute.amazonaws.com', //'mqtt.fizz.io',
+  clients.push(mqtt.connect('tls://test:test@mqtt.fizz.io:443/ws', {
+    //username: 'test', password: 'test',
+    //port: 443, 
+    //host: mqtt.fizz.io,//'ec2-18-144-5-104.us-west-1.compute.amazonaws.com', //'mqtt.fizz.io',
     clean: true, encoding: 'binary', keepalive: 50 }))
 }
 
