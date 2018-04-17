@@ -1,7 +1,11 @@
 #! /usr/bin/env node
 
 var mqtt = require('../')
-var client = mqtt.connect({ username: 'test', password: 'test', port: 80, host: 'mqtt.fizz.io', clean: true, keepalive: 55 })
+var client = mqtt.connect({
+  username: 'test', password: 'test', 
+  port: 1883,//80, 
+  host: 'ec2-18-144-5-104.us-west-1.compute.amazonaws.com', 
+  clean: true, keepalive: 55 })
 
 var sent = 0
 var interval = 1000
@@ -15,7 +19,7 @@ setInterval(count, interval)
 setInterval(publish, 1000)
 function publish () {
   sent++
-  client.publish('test', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBVVUlEIjoiMDNmOTBjNGZmOTkwMDFkNSIsImZpenpVc2VyVVVJRCI6IjA0YmUxMGJiMmRlMGNiNTAiLCJnYW1lVXNlclVVSUQiOiI5MTM4NDI1OCIsImlzQXBwT25saW5lIjp0cnVlLCJpc1VzZXJBbm9ueW1vdXMiOnRydWUsInZlciI6IjEiLCJpYXQiOjE1MDE3NDU4NzIsImV4cCI6MTUwMTc2Mzg3Mn0.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBVVUlEIjoiMDNmOTBjNGZmOTkwMDFkNSIsImZpenpVc2VyVVVJRCI6IjA0YmUxMGJiMmRlMGNiNTAiLCJnYW1lVXNlclVVSUQiOiI5MTM4NDI1OCIsImlzQXBwT25saW5lIjp0cnVlLCJpc1VzZXJBbm9ueW1vdXMiOnRydWUsInZlciI6IjEiLCJpYXQiOjE1MDE3NDU4NzIsImV4cCI6MTUwMTc2Mzg3Mn0.PPsdZYjE3M6aKEMPPlqGgXGxAh6JCMBa8VJUtlgvJscasldflasdfasfsfeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBVVUlEIjoiMDNmOTBjNGZmOTkwMDFkNSIsImZpenpVc2VyVVVJRCI6IjA0YmUxMGJiMmRlMGNiNTAiLCJnYW1lVXNlclVVSUQiOiI5MTM4NDI1OCIsImlzQXBwT25saW5lIjp0cnVlLCJpc1VzZXJBbm9ueW1vdXMiOnRydWUsInZlciI6IjEiLCJpYXQiOjE1MDE3NDU4NzIsImV4cCI6MTUwMTc2Mzg3Mn0.PPsdZYjE3M6aKEMPPlqGgXGxAh6JCMBa8VJUtlgvJscasldflasdfasfsfssdfsdfasfasfsfasfoiwefwefjwofwefwfwehhefwfhwiefhwfwhfihwfwifhsdfa;fhiafhwfhifhiuhfwififw')
+  client.publish('test', 'gledydksxtqnlnhpenplwhhwopdqywjnozpddefrngktfhkcbpkhxpnyvmjwshbpkovvsddnkckvaisbvjmtrxwyrfydzhptrftfddkadkwpyhbtpghnhluqnxnsggtjsphhhpzxonrvqryqknqxandghlwnuckzvexbzjgqdfpozdhyfhckzzyfcgwcqasgufawmxtjxsrfzvhysybwhijuiqvqwzqaghmbmoxuzbcvtiguvmfxpyvgoonxsyahmbtwmwtpxcgoywjfojkuhatmmeuyhvehrjsioymkluvhbduwflvjokfbwfcerjlopeghugvbdgcuokzdsuxzripxgogfhgdnbaxkyvjmlyutbnltvathhiurtijqmszrtkesavtajyfcqhjydwmxixwmdohfgnmwbluefynkgymnzmoxxdaipgsjdmfwhtfgbcucwhfstdoxaxqeeklzqosirzzqqnnfhyqwbpvqydwfctawejyunlwhabvhmfkx', {qos: 1})
 }
 
 client.on('connect', publish)
